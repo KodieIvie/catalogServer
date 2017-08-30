@@ -94,6 +94,6 @@ class CatalogItem(Base):
         }
 
 
-engine = create_engine('sqlite:///catalog.db')
+engine = create_engine('postgresql://kodieivie:k@localhost/catalogItems')
 
 Base.metadata.create_all(engine)

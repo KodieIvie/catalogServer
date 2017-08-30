@@ -1,4 +1,3 @@
-
 import os
 import random
 import string
@@ -6,8 +5,9 @@ import json
 import httplib2
 import requests
 from model import Base, User, Category, CatalogItem
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect 
 from flask import jsonify, url_for, flash, abort, g, make_response
+from flask_sqlalchemy import SQLAlchemy 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
@@ -30,13 +30,13 @@ def login_required(f):
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
-
+# SQLALCHEMY_DATABASE_URI = "postgresql://yourusername:yourpassword@localhost/yournewdb"
 CLIENT_ID = json.loads(open
                        ('client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "catalog"
 
 # Connect to Database and create database session
-engine = create_engine('sqlite:///catalog.db')
+engine = create_engine('postgresql://kodieivie:k@localhost/catalogItems')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()

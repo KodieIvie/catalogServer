@@ -36,7 +36,7 @@ CLIENT_ID = json.loads(open
 APPLICATION_NAME = "catalog"
 
 # Connect to Database and create database session
-engine = create_engine('postgresql://kodieivie:k@localhost/catalogItems')
+engine = create_engine('postgresql://catalog:password@localhost/catalogItems')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -447,9 +447,7 @@ def disconnect():
 
 if __name__ == '__main__':
     app.debug = True
-    app.config['SECRET_KEY'] = ''.join(
-        random.choice(string.ascii_uppercase + string.digits) for x in
-        range(32))
-    app.run(host='0.0.0.0', port=5000)
+    app.config['SECRET_KEY'] = 'love_it'
+    app.run()
    
     

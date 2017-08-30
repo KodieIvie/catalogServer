@@ -8,8 +8,9 @@ from itsdangerous import (TimedJSONWebSignatureSerializer as Serializer,
                           BadSignature, SignatureExpired)
 
 Base = declarative_base()
-secret_key = ''.join(
-    random.choice(string.ascii_uppercase + string.digits) for x in range(32))
+secret_key = 'love_it'
+
+# .join(random.choice(string.ascii_uppercase + string.digits) for x in range(32))
 
 
 class User(Base):
@@ -94,6 +95,6 @@ class CatalogItem(Base):
         }
 
 
-engine = create_engine('postgresql://kodieivie:k@localhost/catalogItems')
+engine = create_engine('postgresql://catalog:password@localhost/catalogItems')
 
 Base.metadata.create_all(engine)

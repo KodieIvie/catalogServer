@@ -32,11 +32,11 @@ app = Flask(__name__)
 auth = HTTPBasicAuth()
 # SQLALCHEMY_DATABASE_URI = "postgresql://yourusername:yourpassword@localhost/yournewdb"
 CLIENT_ID = json.loads(open
-                       ('client_secrets.json', 'r').read())['web']['client_id']
+                       ('/var/www/myapp/client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "catalog"
 
 # Connect to Database and create database session
-engine = create_engine('postgresql://catalog:password@localhost/catalogItems')
+engine = create_engine('postgresql://catalog:password@localhost/catalogitems')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()

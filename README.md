@@ -3,7 +3,8 @@ The database is setup and ready however the google Oauth login API
 doesnt allow login redirects to a publice ip address.
 
 -- INFO FOR UDACITY REVIEWER --
-the password for users grader and postgres is: password
+the password for user grader is: grader
+the password for postgres is: password
 the password for user root is: sudo
 
 Project Requirements 
